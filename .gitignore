@@ -1,24 +1,21 @@
-# solo-manager GitHub sync ignores
-node_modules/
-vendor/
-dist/
-build/
-.next/
-.nuxt/
-.output/
-coverage/
-.turbo/
-.cache/
-.parcel-cache/
-.vite/
-target/
-.gradle/
-.venv/
-venv/
+# Build artifacts
+/resource-tool
+/visual-window-app
+*.o
+*.a
+*.so
+
+# Generated package service state and local test workspaces
+/state/
+/packages/
+/test/tmp/
+/resources/source-v1/
+/resources/source-v2/
+
+# Python / editor noise
 __pycache__/
+*.pyc
 .pytest_cache/
-.mypy_cache/
-.ruff_cache/
 .DS_Store
 *.log
 .env

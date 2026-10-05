@@ -1,0 +1,7 @@
+body{margin:0;font:14px/1.6 system-ui,-apple-system,"Noto Sans CJK SC",sans-serif;background:#0f172a;color:#e2e8f0}
+header{padding:28px 36px;background:linear-gradient(135deg,#1e3a8a,#0f766e)}
+h1{margin:0 0 4px}.hint{color:#94a3b8}main{padding:24px 36px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+article,section{background:#111827;border:1px solid #334155;border-radius:12px;padding:18px;margin-bottom:18px}
+pre{white-space:pre-wrap;word-break:break-all;color:#bae6fd}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%}
+th,td{border-bottom:1px solid #334155;padding:8px;text-align:left;vertical-align:top}th{color:#67e8f9}code{color:#fde68a}
+@media(max-width:800px){.grid{grid-template-columns:1fr}main,header{padding-left:16px;padding-right:16px}}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>资源包管理控制台</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header>
+  <h1>资源包管理</h1>
+  <p>不可变包 · 内容指纹 · 设备分组发布 · 三类 GC 引用</p>
+</header>
+<main>
+<section class="grid">
+  <article><h2>包</h2><pre id="packages">加载中…</pre></article>
+  <article><h2>发布记录</h2><pre id="releases">加载中…</pre></article>
+</section>
+<section>
+  <h2>背景、字体与图标清单</h2>
+  <div class="table-wrap"><table id="inventory"><thead><tr><th>路径</th><th>类型</th><th>尺寸</th><th>布局依赖</th><th>版本/发布</th></tr></thead><tbody><tr><td colspan="5">加载中…</td></tr></tbody></table></div>
+</section>
+<section>
+  <h2>缺文件与完整性诊断</h2>
+  <p class="hint">这里列出服务端缺失、指纹不符、尺寸不一致，以及终端上报的缺文件原因；不会仅凭“最近未下载”判断删除。</p>
+  <div class="table-wrap"><table id="diag"><thead><tr><th>来源</th><th>分组/状态</th><th>版本</th><th>逻辑路径</th><th>原因</th><th>期望指纹</th></tr></thead><tbody><tr><td colspan="6">加载中…</td></tr></tbody></table></div>
+</section>
+<section>
+  <h2>策略说明</h2>
+  <ol>
+    <li><b>整体包切换 + 内容寻址去重</b>：下载与校验以不可变整体包为单位，激活通过 state 原子 rename；blob 按 SHA256 复用。包一半时绝不改 current.state。</li>
+    <li><b>离线安装</b>：终端可直接安装已复制到本机的 <code>.rrpkg</code>，不依赖开发机绝对路径或在线服务。</li>
+    <li><b>回退</b>：保留上一版本的 index 与全部 blob；current 与 previous 原子互换，不重新下载。</li>
+    <li><b>GC</b>：只回收当前显示、待发布、回退保留三类引用之外的内容；损坏临时文件单独清理。</li>
+  </ol>
+</section>
+</main>
+<script src="/static/app.js"></script>
+</body></html>

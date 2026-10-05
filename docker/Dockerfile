@@ -18,10 +18,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-
 COPY . /app
-RUN chmod +x /app/docker/entrypoint.sh && make
+RUN chmod +x /app/docker/entrypoint.sh && make tool && make app
 
 EXPOSE 6080
-
 CMD ["/app/docker/entrypoint.sh"]
